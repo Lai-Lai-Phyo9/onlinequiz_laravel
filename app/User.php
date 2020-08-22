@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function multiquestions()
+    {
+        return $this->belongsToMany('App\MultiQuestion')
+                    ->withPivot('answer','mark')
+                    ->withTimestamps();
+    }
+
+    public function truefalsequestions()
+    {
+        return $this->belongsToMany('App\TrueFalseQuestion')
+                    ->withPivot('answer','mark')
+                    ->withTimestamps();
+    }
+    public function shortquestions()
+    {
+        return $this->belongsToMany('App\ShortQuestion')
+                    ->withPivot('answer','mark')
+                    ->withTimestamps();
+    }
 }

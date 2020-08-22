@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MultiQuestion extends Model
 {
     protected $fillable=[
-    'photo','name','choice1','choice2','choice3','choice4','answer',
+    'name','photo','choice1','choice2','choice3','choice4','answer',
     ];
      public function question()
     {
@@ -16,7 +16,7 @@ class MultiQuestion extends Model
     public function users()
     {
     	return $this->belongsToMany('App\User')
-    				->withPivot('answer')
+    				->withPivot('answer','mark')
     				->withTimestamps();
     }
     

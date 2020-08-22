@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TrueFalseQuestion extends Model
 {
     protected $fillable=[
-    'photo','name','answer',
+    'name','photo','answer',
     ];
      public function question()
     {
@@ -16,7 +16,7 @@ class TrueFalseQuestion extends Model
         public function users()
     {
     	return $this->belongsToMany('App\User')
-    				->withPivot('answer')
+    				->withPivot('answer','mark')
     				->withTimestamps();
     }
 }
